@@ -1,0 +1,217 @@
+:root {
+  --main-color: #9c27b0;
+  --second-color: #89119d;
+  --yellow: #f2b83b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--main-color);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.products__title {
+  text-align: center;
+}
+
+.header {
+  display: grid;
+  place-items: center;
+}
+
+.header > img {
+  height: auto;
+  width: 200px;
+  padding: 20px 0;
+  object-fit: cover;
+}
+
+.navbar {
+  width: 100%;
+  padding: 15px 0;
+  background-color: var(--second-color);
+}
+
+.navbar__links {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__item .navbar__link {
+  color: #fff;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.navbar__item .active {
+  color: var(--yellow);
+}
+
+section.products {
+  padding: 30px 0;
+}
+
+.products__title {
+  font-size: clamp(1.7rem, 5vw, 2.5rem);
+  color: var(--yellow);
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.container__products {
+  display: grid;
+  grid-template-areas: 
+  "vue angular react"
+  "grafico1 grafico1 redux"
+  "node sass html"
+  "github bulma typescript"
+  "drupal grafico2 grafico2"
+  "javascript graphQL wordpress"
+  ;
+  gap: 1rem;
+}
+
+.box {
+  height: auto;
+  width: 100%;
+  background-color: var(--second-color);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product__info {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: grid;
+  place-items: center;
+  padding: 10px 0;
+}
+
+.product__info h2 {
+  color: #fff;
+}
+
+.product__info span {
+  color: var(--yellow);
+  font-size: 25px;
+}
+
+.box img {
+  height: 100%;
+  width: 100%;
+}
+
+.box__vue {
+  grid-area: vue;
+}
+
+.box__angular {
+  grid-area: angular;
+}
+.box__react {
+  grid-area: react;
+}
+.box__grafico1 {
+  grid-area: grafico1;
+}
+.box__redux {
+  grid-area: redux;
+}
+.box__node {
+  grid-area: node;
+}
+.box__sass {
+  grid-area: sass;
+}
+.box__html {
+  grid-area: html;
+}
+.box__github {
+  grid-area: github;
+}
+.box__bulma {
+  grid-area: bulma;
+}
+.box__typescript {
+  grid-area: typescript;
+}
+.box__drupal {
+  grid-area: drupal;
+}
+.box__grafico2 {
+  grid-area: grafico2;
+}
+.box__javascript {
+  grid-area: javascript;
+}
+.box__graph {
+  grid-area: graphQL;
+}
+.box__wordpress {
+  grid-area: wordpress;
+}
+
+.footer {
+  padding: 15px 0;
+  text-align: center;
+  color: #fff;
+  background-color: var(--second-color);
+}
+
+@media (width <= 576px) {
+  .container__products {
+    grid-template-areas: 
+    "vue angular"
+    "grafico1 grafico1"
+    "redux node"
+    "sass html"
+    "github bulma"
+    "grafico2 grafico2"
+    "typescript drupal"
+    "javascript graphQL"
+    "wordpress react"
+    ; 
+  }
+}
+
+@media (width <= 370px) {
+  .container__products {
+    grid-template-areas: 
+    "vue"
+    "angular"
+    "grafico1"
+    "redux"
+    "node"
+    "sass"
+    "html"
+    "grafico2"
+    "github"
+    "bulma"
+    "typescript"
+    "drupal"
+    "javascript"
+    "graphQL"
+    "wordpress"
+    "react"
+    ; 
+  }
+}

@@ -1,0 +1,25 @@
+div{
+    color: palegoldenrod;
+
+}
+
+.highlight{
+    color: black;
+}
+
+#special{
+    color:greenyellow
+}
+
+body{
+    background-color: aquamarine;
+    
+}
+
+.box{
+    background-color: black;
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    box-shadow: blue;
+}

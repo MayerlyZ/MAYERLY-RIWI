@@ -1,0 +1,121 @@
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #d2fddf, #f0ffe0);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("asssets/img/patron-de-marmol-dorado.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: backgroundMove 20s linear infinite;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 40% 5% 5% 40% / 40% 5% 5% 40%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 60px;
+  width: 450px;
+  animation: fadeSlideIn 1s ease-out;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #733B0A;
+}
+
+h2 span {
+  font-weight: 300;
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-size: 0.85em;
+  color: #3e5f3e;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.options {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.options a {
+  color: #733B0A;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: linear-gradient(100deg, #733702, #733702);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.03);
+}
+
+.social-login {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.social-login .icons i {
+  margin: 0 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  color:#733B0A;
+  transition: color 0.3s;
+
+}
+
+.social-login .icons i:hover {
+  color: #733B0A;
+}
+.icons{
+    margin-top: 10px;
+}
+/* Animaciones */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
