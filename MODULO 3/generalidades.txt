@@ -1,0 +1,43 @@
+Incluir un archivo js en el head
+script ruta de la pagina y el atributo ref, para especificarle que el archivo js se cargue despues 
+del html. Tambien lo puedo hacer antes de cerrar la etiqueta body
+
+Debbuging: Aprender a depurar codigo, errores que se ven desde la consola del navegador 
+
+MOSTRAR MENSAJES EN CONSOLA 
+
+2.1. console.log("mensaje"): Es la forma mas usada para imprimir mensajes, rastrear el flujo del
+codigo y de depurar.
+
+2.2  console.error("mensaje"): Se usa para mostrar mensajes de error, es muy util usandolos en
+try.catch. Son de color rojo
+
+2.3. console.warn(): muestra un mensaje de advertencia, ideal para imprimir mensajes de errores
+que no son criticos. El navegador lo imprime de color amarillo o con un simbolo de admiracion.
+
+2.4. console.info(): pero se utiliza para mostrar mensajes informativos. Los navegadores suelen
+mostrar estos mensajes con un ícono de información, pero la mayoría de las veces no hay mucha 
+diferencia visible respecto a console.log().
+
+2.5. console.group() y console.groupEnd(): estas funciones permiten agrupar varios mensajes de la 
+consola bajo un mismo encabezado. Puedes anidar varios mensajes en un grupo, y este grupo
+se puede expandir o contraer en la consola.
+
+2.6. console.time() y console.timeEnd(): Estas funciones permiten medir el tiempo de ejecución de
+una operación o un bloque de código. Comienzas la medición con console.time() y la terminas con
+console.timeEnd(). El tiempo total transcurrido se mostrará en la consola. 
+
+2.7: console.table(): Se usa para para mostrar informacion de un objeto o array 
+Esto nos presentará la información en la consola dentro de una tabla, donde nos 
+separará cada elemento o propiedad con sus diferentes valores.
+
+
+MODIFICACION DEL DOM DESDE LA CONSOLA
+
+document.querySelector('p').textContent = ' <h2>MAYERLY ZAPATA </h2>' = Para modificar solo el contenido del HTML
+' <h2>MAYERLY ZAPATA </h2>'
+document.querySelector('p').innerHTML = ' <h2>MAYERLY ZAPATA </h2>' = Para cambiar directamente el HTML
+' <h2>MAYERLY ZAPATA </h2>'
+
+
+
