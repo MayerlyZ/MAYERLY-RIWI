@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Datos</title>
+    <script defer src="gestion_datos.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Product Management</h1>
+
+        <section>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="number">Price:</label><br>
+            <input type="number" id="number" name="number" required><br>
+
+            <!-- Llamamos a la función 'producto()' al hacer clic -->
+            <button type="button" onclick="producto()">Add Product</button>
+        </section>
+
+        <div id="dataDisplay"></div>
+    </main>
+</body>
+</html>
