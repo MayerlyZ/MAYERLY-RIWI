@@ -1,34 +1,19 @@
 {
-  "productos": [
+  "products": [
     {
-      "id": 4,
-      "nombre": "Monitor",
-      "precio": 500
+      "name": "arroz",
+      "price": 5000,
+      "id": "5a16"
     },
     {
-      "id": 4,
-      "nombre": "Monitor",
-      "precio": 500
+      "id": "c204",
+      "name": "carne",
+      "price": 20000
     },
     {
-      "id": 4,
-      "nombre": "Monitor",
-      "precio": 500
-    },
-    {
-      "id": "f1c7",
-      "nombre": "agua",
-      "precio": 200
-    },
-    {
-      "id": "dcc0",
-      "nombre": "camisa",
-      "precio": 2000
-    },
-    {
-      "id": "d234",
-      "nombre": "pantalon",
-      "precio": 600
+      "id": "aaf3",
+      "name": "huevo",
+      "price": 2000
     }
   ]
 }

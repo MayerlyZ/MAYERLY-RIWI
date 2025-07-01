@@ -1,51 +1,50 @@
+// OBTENER PRODUCTOS DISPONIBLES
+fetch('http://localhost:3000/products')
+  .then(response => response.json())
+  .then(data => console.log("Products available:", data))
+  .catch(error => console.error("Error getting product:", error));
 
-fetch('http://localhost:3000/productos')
-.then(response => response.json())
-.then(data => console.log("Productos disponibles:", data))
-.catch(error => console.error("Error al obtener prodcuto", error));
+// CREACIÓN DE NUEVO PRODUCTO (sin ID manual)
+const newProduct = { name: "Monitor", price: 500 };
 
-
-//CREACION DE NUEVOS DATOS POST
-const newProduct= {id: 4, nombre: "Monitor", precio:500};
-
-fetch('http://localhost:3000/productos', {
-    method: 'POST',
-    headers: { 'Content-Type': 'aplication/json'},
-    body: JSON.stringify(newProduct)
+fetch('http://localhost:3000/products', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(newProduct)
 })
-.then(response => response.json())
-.then(data => console.log("Productos agregado:", data))
-.catch(error => console.error("Error al agregar producto", error));
+  .then(response => response.json())
+  .then(data => {
+    console.log("Product add:", data);
+    
+    // ACTUALIZACIÓN usando el ID recibido
+    const updateProduct = { name: "Monitor Pro", price: 750 };
+    
+    fetch(`http://localhost:3000/products/${data.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updateProduct)
+    })
+    .then(response => response.json())
+    .then(updated => console.log("Updated product:", updated))
+    .catch(error => console.error("Error updating product:", error));
 
+    // ELIMINACIÓN usando el mismo ID
+    fetch(`http://localhost:3000/products/${data.id}`, {
+      method: 'DELETE'
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Could not delete');
+      console.log("Product removed:", data.id);
+    })
+    .catch(error => console.error("Error when deleting product:", error));
+  })
+  .catch(error => console.error("Error adding producto:", error));
 
-//ACTUALIZACION DATOS PUT 
-const updateProduct= {id: 4, nombre: "Monitor", precio:500};
-
-fetch('http://localhost:3000/productos/1', {
-    method: 'PUT',
-    headers: { 'Content-Type': 'aplication/json'},
-    body: JSON.stringify(updateProduct)
-})
-.then(response => response.json())
-.then(data => console.log("Productos actualizado:", data))
-.catch(error => console.error("Error al actualizar producto", error));
-
-
-//ELIMINACION DE DATOS DELETE
-fetch('http://localhost:3000/productos/2', {
-    method: 'DELETE',
-})
-.then(data => console.log("Productos eliminado:", data))
-.catch(error => console.error("Error al eliminar producto", error));
-
-//MANEJO DE ERRORES
-function validarProdruct(producto){
-    if (!producto.nombre || typeof producto.precio !=="number"){
-        console.error("Datos del producto no validos");
-        return false;
-    }
-    return true;
+// VALIDACIÓN DE PRODUCTO
+function validateProduct(product) {
+  if (!product.name || typeof product.price !== "number") {
+    console.error("Invalid product data");
+    return false;
+  }
+  return true;
 }
-
-
-
