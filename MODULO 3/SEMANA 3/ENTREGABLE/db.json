@@ -1,0 +1,34 @@
+{
+  "productos": [
+    {
+      "id": 4,
+      "nombre": "Monitor",
+      "precio": 500
+    },
+    {
+      "id": 4,
+      "nombre": "Monitor",
+      "precio": 500
+    },
+    {
+      "id": 4,
+      "nombre": "Monitor",
+      "precio": 500
+    },
+    {
+      "id": "f1c7",
+      "nombre": "agua",
+      "precio": 200
+    },
+    {
+      "id": "dcc0",
+      "nombre": "camisa",
+      "precio": 2000
+    },
+    {
+      "id": "d234",
+      "nombre": "pantalon",
+      "precio": 600
+    }
+  ]
+}
