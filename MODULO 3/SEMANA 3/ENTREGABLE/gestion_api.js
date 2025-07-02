@@ -4,7 +4,7 @@ fetch('http://localhost:3000/products')
   .then(data => console.log("Products available:", data))
   .catch(error => console.error("Error getting product:", error));
 
-// CREACIÓN DE NUEVO PRODUCTO (sin ID manual)
+// CREACIÓN DE NUEVO PRODUCTO sin ID manual
 const newProduct = { name: "Monitor", price: 500 };
 
 fetch('http://localhost:3000/products', {
@@ -16,7 +16,7 @@ fetch('http://localhost:3000/products', {
   .then(data => {
     console.log("Product add:", data);
     
-    // ACTUALIZACIÓN usando el ID recibido
+    // ACTUALIZACIÓN USANDO EL ID QUE RECIBÍ
     const updateProduct = { name: "Monitor Pro", price: 750 };
     
     fetch(`http://localhost:3000/products/${data.id}`, {

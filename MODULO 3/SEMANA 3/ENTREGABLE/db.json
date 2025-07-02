@@ -1,19 +1,14 @@
 {
   "products": [
     {
-      "id": "2b07",
-      "name": "perro",
-      "price": 2000
+      "id": "8537",
+      "name": "Arroz",
+      "price": 5000
     },
     {
-      "id": "73d9",
-      "name": "arroz",
-      "price": 2000
-    },
-    {
-      "id": "12d9",
-      "name": "ojo",
-      "price": 33333
+      "name": "Pera",
+      "price": 200,
+      "id": "e530"
     }
   ]
 }

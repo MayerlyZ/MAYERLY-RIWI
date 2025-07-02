@@ -13,7 +13,12 @@ const btnCancel = document.getElementById("btnCancel");
 
 let productActual = null;
 
-// Cargar productos en pantalla
+// Capitaliza el nombre (ej. "arRoZ" -> "Arroz")
+function capitalizeName(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+// Cargar productos
 function uploadProducts() {
   fetch(url)
     .then(res => res.json())
@@ -26,7 +31,8 @@ function uploadProducts() {
 
         div.innerHTML = `
           <p><strong>${product.name}</strong></p>
-          <p>price: $${product.price}</p>
+          <p>Price: $${product.price}</p>
+          <p>ID: #${product.id}</p>
           <button class="edit">Edit</button>
           <button class="delete">Delete</button>`;
 
@@ -37,7 +43,7 @@ function uploadProducts() {
           }).then(() => uploadProducts());
         });
 
-        // Botón editar abre el modal
+        // Botón editar
         div.querySelector(".edit").addEventListener("click", () => {
           showModal(product);
         });
@@ -47,15 +53,27 @@ function uploadProducts() {
     });
 }
 
-// Agregar new producto
-form.addEventListener("submit", e => {
+// Agregar producto nuevo
+form.addEventListener("submit", async e => {
   e.preventDefault();
 
-  const name = nameInput.value.trim();
-  const price = parseFloat(priceInput.value);
+  let name = nameInput.value.trim();
+  let price = parseFloat(priceInput.value);
 
-  if (!name || isNaN(price)) {
-    alert("Datos inválidos");
+  if (!name || isNaN(price) || price <= 0) {
+    alert("Invalid name or price must be greater than 0.");
+    return;
+  }
+
+  name = capitalizeName(name);
+
+  // Validar producto repetido
+  const response = await fetch(url);
+  const products = await response.json();
+  const exists = products.some(p => p.name.toLowerCase() === name.toLowerCase());
+
+  if (exists) {
+    alert("There is already a product with that name.");
     return;
   }
 
@@ -63,13 +81,14 @@ form.addEventListener("submit", e => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, price })
-  }).then(() => {
-    form.reset();
-    uploadProducts();
-  });
+  })
+    .then(() => {
+      form.reset();
+      uploadProducts();
+    });
 });
 
-// Mostrar modal con datos del producto actual
+// Mostrar modal de edición
 function showModal(product) {
   productActual = product;
   modalName.value = product.name;
@@ -83,15 +102,29 @@ btnCancel.addEventListener("click", () => {
   productActual = null;
 });
 
-// Guardar cambios desde el modal
-formModal.addEventListener("submit", e => {
+// Guardar edición
+formModal.addEventListener("submit", async e => {
   e.preventDefault();
 
-  const newName = modalName.value.trim();
-  const newPrice = parseFloat(modalPrice.value);
+  let newName = modalName.value.trim();
+  let newPrice = parseFloat(modalPrice.value);
 
-  if (!newName || isNaN(newPrice)) {
-    alert("Datos inválidos");
+  if (!newName || isNaN(newPrice) || newPrice <= 0) {
+    alert("Invalid name or price must be greater than 0");
+    return;
+  }
+
+  newName = capitalizeName(newName);
+
+  // Validar duplicado (excluyendo el mismo producto)
+  const response = await fetch(url);
+  const products = await response.json();
+  const exists = products.some(p =>
+    p.name.toLowerCase() === newName.toLowerCase() && p.id !== productActual.id
+  );
+
+  if (exists) {
+    alert("There is already another product with that name.");
     return;
   }
 
@@ -103,7 +136,6 @@ formModal.addEventListener("submit", e => {
       price: newPrice
     })
   })
-    .then(res => res.json())
     .then(() => {
       modal.classList.add("hidden");
       productActual = null;
@@ -111,4 +143,5 @@ formModal.addEventListener("submit", e => {
     });
 });
 
+// Cargar productos al inicio
 uploadProducts();

@@ -10,10 +10,6 @@
   <main>
     <h1>CRUD</h1>
 
-    <div id="products">
-      <!-- Aquí se generarán dinámicamente los productos -->
-    </div>
-
     <h2>Add Product</h2>
     <form id="formAdd">
       <input type="text" id="name" placeholder="Name of product" required />
@@ -21,7 +17,12 @@
       <button type="submit" class="buttonAdd">Add</button>
     </form>
 
-    <!-- Modal de edición -->
+   <h2>Added Products</h2>
+    <div id="products">
+     
+    </div>
+
+   
     <div id="modal" class="modal hidden">
       <div class="modal-content">
         <h3>Edit product</h3>
@@ -29,7 +30,7 @@
           <input type="text" id="modalName" placeholder="Name" required />
           <input type="number" id="modalPrice" placeholder="Price" required />
           <div class="modal-buttons">
-            <button type="submit">Save</button>
+            <button type="submit" id="btnSave">Save</button>
             <button type="button" id="btnCancel">Cancel</button>
           </div>
         </form>
