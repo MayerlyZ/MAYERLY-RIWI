@@ -28,7 +28,7 @@ fetch('http://localhost:3000/products', {
     .then(updated => console.log("Updated product:", updated))
     .catch(error => console.error("Error updating product:", error));
 
-    // ELIMINACIÓN usando el mismo ID
+    // ELIMINACIÓN USANDO EL MISMO ID 
     fetch(`http://localhost:3000/products/${data.id}`, {
       method: 'DELETE'
     })
