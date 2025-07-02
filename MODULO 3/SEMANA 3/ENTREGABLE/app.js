@@ -1,49 +1,48 @@
-const url = "http://localhost:3000/productos";
-const contenedor = document.getElementById("products");
+const url = "http://localhost:3000/products";
+const container = document.getElementById("products");
 const form = document.getElementById("formAdd");
 const nameInput = document.getElementById("name");
-const precioInput = document.getElementById("price");
+const priceInput = document.getElementById("price");
 
 // Elementos del modal
 const modal = document.getElementById("modal");
 const formModal = document.getElementById("formModal");
-const modalname = document.getElementById("modalname");
-const modalprice = document.getElementById("modalprice");
-const btnCancelar = document.getElementById("btnCancelar");
+const modalName = document.getElementById("modalName");
+const modalPrice = document.getElementById("modalPrice");
+const btnCancel = document.getElementById("btnCancel");
 
-let productoActual = null;
+let productActual = null;
 
 // Cargar productos en pantalla
-function cargarProductos() {
+function uploadProducts() {
   fetch(url)
     .then(res => res.json())
-    .then(productos => {
-      contenedor.innerHTML = "";
+    .then(products => {
+      container.innerHTML = "";
 
-      productos.forEach(product => {
+      products.forEach(product => {
         const div = document.createElement("div");
         div.classList.add("product");
 
         div.innerHTML = `
           <p><strong>${product.name}</strong></p>
           <p>price: $${product.price}</p>
-          <button class="editar">Editar</button>
-          <button class="eliminar">Eliminar</button>
-        `;
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>`;
 
         // Botón eliminar
-        div.querySelector(".eliminar").addEventListener("click", () => {
-          fetch(`${url}/${producto.id}`, {
+        div.querySelector(".delete").addEventListener("click", () => {
+          fetch(`${url}/${product.id}`, {
             method: "DELETE"
-          }).then(() => cargarProductos());
+          }).then(() => uploadProducts());
         });
 
         // Botón editar abre el modal
-        div.querySelector(".editar").addEventListener("click", () => {
-          mostrarModal(producto);
+        div.querySelector(".edit").addEventListener("click", () => {
+          showModal(product);
         });
 
-        contenedor.appendChild(div);
+        container.appendChild(div);
       });
     });
 }
@@ -66,22 +65,22 @@ form.addEventListener("submit", e => {
     body: JSON.stringify({ name, price })
   }).then(() => {
     form.reset();
-    cargarProductos();
+    uploadProducts();
   });
 });
 
 // Mostrar modal con datos del producto actual
-function mostrarModal(producto) {
-  productoActual = producto;
-  modalname.value = producto.name;
-  modalprice.value = producto.price;
+function showModal(product) {
+  productActual = product;
+  modalName.value = product.name;
+  modalPrice.value = product.price;
   modal.classList.remove("hidden");
 }
 
 // Cancelar edición
-btnCancelar.addEventListener("click", () => {
+btnCancel.addEventListener("click", () => {
   modal.classList.add("hidden");
-  productoActual = null;
+  productActual = null;
 });
 
 // Guardar cambios desde el modal
@@ -96,7 +95,7 @@ formModal.addEventListener("submit", e => {
     return;
   }
 
-  fetch(`${url}/${productoActual.id}`, {
+  fetch(`${url}/${productActual.id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -107,9 +106,9 @@ formModal.addEventListener("submit", e => {
     .then(res => res.json())
     .then(() => {
       modal.classList.add("hidden");
-      productoActual = null;
-      cargarProductos();
+      productActual = null;
+      uploadProducts();
     });
 });
 
-cargarProductos();
+uploadProducts();
