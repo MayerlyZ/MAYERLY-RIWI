@@ -56,7 +56,7 @@ function validateProduct(product) {
 ```
 
 ### Prerequisites
-- Have ***node.js** installed
+- Have ***node.js*** installed
   
 - Have json-server installed:
        ***npm install -g json-server***
