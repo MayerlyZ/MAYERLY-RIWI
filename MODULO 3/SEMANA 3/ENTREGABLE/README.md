@@ -16,7 +16,7 @@ This project is a basic web application that allows you to **Create, Read, Updat
 ├── index.html → Main interface  
 ├── style.css → Visual styles  
 ├── app.js → Main CRUD logic  
-|── gestion_api.js → Main fetch logic  
+├── gestion_api.js → Main fetch logic  
 
 ## ⚙️ Main Features
 
