@@ -69,11 +69,11 @@ function validateProduct(product) {
   
 - Have json-server installed:
   
-       ***npm install -g json-server***
+       npm install -g json-server
 
 - Start the server:
   
-        ***json-server --watch db.json --port 3000***
+        json-server --watch db.json --port 3000
 
   
 
@@ -81,24 +81,24 @@ function validateProduct(product) {
 🚀 How to Use
 Clone this repository or download the files.
 
-Make sure json-server is running.
+- Make sure json-server is running.
 
-Open index.html in your browser.
+- Open index.html in your browser.
 
-Start adding, editing, or deleting products.
+- Start adding, editing, or deleting products.
 
 
 
 ✅ Additional Features
 User-friendly edit modal
 
-Automatic name capitalization
+- Automatic name capitalization
 
-Form validation
+- Form validation
 
-Duplicate checking
+- Duplicate checking
 
-Basic responsive visual style
+- Basic responsive visual style
 
 
 
