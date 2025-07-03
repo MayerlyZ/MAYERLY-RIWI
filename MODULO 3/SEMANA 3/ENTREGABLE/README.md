@@ -2,6 +2,7 @@
 
 This project is a basic web application that allows you to **Create, Read, Update, and Delete (CRUD)** products. It is built with HTML, CSS, and JavaScript, and connects to a backend (such as `json-server`) at `http://localhost:3000/products`.
 
+
 ## 🧰 Technologies Used
 
 - HTML5
@@ -10,6 +11,8 @@ This project is a basic web application that allows you to **Create, Read, Updat
 - Fetch API
 - [json-server](https://github.com/typicode/json-server) to simulate a REST API
 
+  
+
 ## 📁 Project Structure
 
 📦 CRUD PRODUCT  
@@ -17,6 +20,8 @@ This project is a basic web application that allows you to **Create, Read, Updat
 ├── style.css → Visual styles  
 ├── app.js → Main CRUD logic  
 ├── gestion_api.js → Main fetch logic  
+
+
 
 ## ⚙️ Main Features
 
@@ -35,6 +40,8 @@ When you click the **"Edit"** button, a modal opens with the current product dat
 ### 🔸 4. Delete Products
 The **"Delete"** button removes the product from the API using `DELETE`.
 
+
+
 ## 🧪 Auxiliary File (`gestion_api.js`)
 This additional file shows how to directly test the functions:
 - Get products
@@ -42,6 +49,8 @@ This additional file shows how to directly test the functions:
 - Edit it with the returned ID
 - Delete it
 - Validate data before any operation
+
+  
 
 ### Validation Function:
 
@@ -59,12 +68,15 @@ function validateProduct(product) {
 - Have ***node.js*** installed
   
 - Have json-server installed:
+  
        ***npm install -g json-server***
 
 - Start the server:
-        ***json-server --watch db.json --port 3000**
+  
+        ***json-server --watch db.json --port 3000***
 
   
+
 
 🚀 How to Use
 Clone this repository or download the files.
@@ -74,6 +86,8 @@ Make sure json-server is running.
 Open index.html in your browser.
 
 Start adding, editing, or deleting products.
+
+
 
 ✅ Additional Features
 User-friendly edit modal
@@ -86,11 +100,15 @@ Duplicate checking
 
 Basic responsive visual style
 
+
+
 📌 Notes
 This CRUD does not permanently store data in a real database.
 
+
 📷 Screenshots
 ![alt text](image.png)
+
 
 🧑‍💻 Author
 Mayerly Zapata Rodriguez
