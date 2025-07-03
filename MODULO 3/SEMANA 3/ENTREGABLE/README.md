@@ -56,11 +56,15 @@ function validateProduct(product) {
 ```
 
 ### Prerequisites
+- Have ***node.js** installed
+  
 - Have json-server installed:
-        npm install -g json-server
+       ***npm install -g json-server***
 
 - Start the server:
-        json-server --watch db.json --port 3000
+        ***json-server --watch db.json --port 3000**
+
+  
 
 🚀 How to Use
 Clone this repository or download the files.
